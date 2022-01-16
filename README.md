@@ -60,3 +60,11 @@
 - Let's console.log to the screen and see
 - Now we can use this error object and display the error in jsx conditionally
 - ONE PROBLEM AT THIS POINT IS, IF WE GET RID OF ONE ERROR, ALL OTHER FIELDS WHICH ARE NOT YET TOUCHED SHOW THE ERROR. LET'S TACKLE THAT NEXT
+
+### Touched fields
+
+- We need to show error message (if any) on only the touched or visited field
+- We can use 'onBlur' prop = {formik.handleBlur} on each input field
+- This handleBlur data is stored in the object called 'touched' inside useFormikContext like formik.values and formik.errors
+- We can use this formik.touched to display error message in UI for that particular field
+- So now we check for two conditions. If there's an error in the field and also if the field is touched then only we display error on that field.
