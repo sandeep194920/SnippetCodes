@@ -58,3 +58,5 @@
 
 - Similar to formik.values, formik (validate function) provides formik.errors
 - Let's console.log to the screen and see
+- Now we can use this error object and display the error in jsx conditionally
+- ONE PROBLEM AT THIS POINT IS, IF WE GET RID OF ONE ERROR, ALL OTHER FIELDS WHICH ARE NOT YET TOUCHED SHOW THE ERROR. LET'S TACKLE THAT NEXT
