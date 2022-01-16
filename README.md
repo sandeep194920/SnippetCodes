@@ -51,3 +51,5 @@
         We have - values.name, values.email and values.channel
         So we must have - errors.name, errors.email and errors.channel
   - 3.  the values of each field must be a string specifying the error itself of that field
+
+- Refactored the formik values by moving the formik object values on top level of code. This is just for readability
