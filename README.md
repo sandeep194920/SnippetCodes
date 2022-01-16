@@ -53,3 +53,8 @@
   - 3.  the values of each field must be a string specifying the error itself of that field
 
 - Refactored the formik values by moving the formik object values on top level of code. This is just for readability
+
+### Formik validation errors
+
+- Similar to formik.values, formik (validate function) provides formik.errors
+- Let's console.log to the screen and see

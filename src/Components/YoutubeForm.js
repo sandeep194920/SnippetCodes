@@ -34,6 +34,8 @@ function YoutubeForm() {
     validate,
   })
 
+  console.log('Formik errors', formik.errors)
+
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
