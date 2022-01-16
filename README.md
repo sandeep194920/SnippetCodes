@@ -35,3 +35,19 @@
 - Step 2. Specify onSubmit prop on formik context. This is a function that gets value param which is formik.values
 - When we submit the form, this onSubmit method (in useFormikContext) is executed
 - For submit button, add type='submit' to avoid any warnings
+- TIME TO LEARN FORM VALIDATION
+
+### Validate the form
+
+- We need to add 2 rules ( 1. All fields are Required. 2. Email must be valid)
+- to the formik, we specify thrid property 'validate' just like initialValues and onSubmit
+- this 'validate' is also a method like onSubmit that recieves values as args
+- this is a function/method will have to satisfy some conditions for the formik to work
+
+  #### Conditions
+
+  - 1.  The validate function must return an object. Let's create an object and return it. Let's call that object 'errors'
+  - 2.  The keys of this errors object must be same as the keys of values object
+        We have - values.name, values.email and values.channel
+        So we must have - errors.name, errors.email and errors.channel
+  - 3.  the values of each field must be a string specifying the error itself of that field
