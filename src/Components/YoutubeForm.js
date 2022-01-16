@@ -9,6 +9,9 @@ function YoutubeForm() {
       channel: '',
     },
   })
+
+  console.log('Formik Values', formik.values)
+
   return (
     <div>
       <form>

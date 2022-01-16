@@ -20,4 +20,10 @@
 
 - Step 1 is to add initialValues (previous step)
 - Step 2 is to add onChange and the value prop on the input fields
-- Now the formik will track the form changes
+- Now the formik will track the form changes. To see form values, use formik.values
+
+### Take a look yourself - Form values
+
+- Added a console log statement to view the formik values
+- See how the values change on typing in the form
+- formik.values is the current form values at any time (updated form)
