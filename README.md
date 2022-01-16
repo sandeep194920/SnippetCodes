@@ -27,3 +27,11 @@
 - Added a console log statement to view the formik values
 - See how the values change on typing in the form
 - formik.values is the current form values at any time (updated form)
+- TILL NOW WE HAVE LEARNT HOW TO MANAGE THE FORM FIELD AND UPDATE THE FORM. NOW LETS SEE HOW TO SUBMIT THE FORM
+
+### Submit the form
+
+- 2 steps: 1. specify onSubmit={formik.handleSubmit} handler on form tag
+- Step 2. Specify onSubmit prop on formik context. This is a function that gets value param which is formik.values
+- When we submit the form, this onSubmit method (in useFormikContext) is executed
+- For submit button, add type='submit' to avoid any warnings
