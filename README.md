@@ -129,3 +129,18 @@
 - You might have noticed that the styling disappeared when we use ErrorMessage
 - We can use a component prop on error message and specify that as a react component. The message passed will then be rendered as that component.
 - Let me create a TextError.js component and pass message as children prop and render error message in red color
+
+### Field component more details
+
+##### Facts we know
+
+- By default, Field renders HTML input element
+- It hooks up the input element to formik i.e., it hooks up handleChange, handleBlur to formik
+
+##### Additional info
+
+- It passes any additional prop to HTML input element
+- Let's pass placeholder prop and see (inspect in dom for that input element if rendered)
+- Meaning, any additional prop to field component will pass through to the underlying input element
+- The second point is, we can render other element other than input
+- Let's say I need to add a text area (lets say comments) to this form. First mention that prop in the initialValues and then in jsx, set 'as' props to 'textarea'

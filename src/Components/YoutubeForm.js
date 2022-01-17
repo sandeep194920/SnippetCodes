@@ -8,6 +8,7 @@ function YoutubeForm() {
     name: '',
     email: '',
     channel: '',
+    comments: '',
   }
   const onSubmit = (values) => {
     console.log('The sumbited form', values)
@@ -80,6 +81,7 @@ function YoutubeForm() {
             type='text'
             id='channel'
             name='channel'
+            placeholder='Youtube channel name'
             // onBlur={formik.handleBlur}
             // onChange={formik.handleChange}
             // values={formik.values.channel}
@@ -93,6 +95,12 @@ function YoutubeForm() {
           )} */}
           <ErrorMessage name='channel' component={TextError} />
         </div>
+
+        <div className='form-control'>
+          <label htmlFor='comments'>Comments</label>
+          <Field as='textarea' id='comments' name='comments' />
+        </div>
+
         <button type='submit'>Submit</button>
       </Form>
     </Formik>
