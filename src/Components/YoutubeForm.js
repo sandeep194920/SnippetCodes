@@ -1,5 +1,5 @@
 import React from 'react'
-import { useFormik } from 'formik'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 
 function YoutubeForm() {
@@ -20,66 +20,81 @@ function YoutubeForm() {
     channel: Yup.string().required('Channel is required'),
   })
 
-  const formik = useFormik({
-    initialValues,
-    onSubmit,
-    // validate,
-    validationSchema,
-  })
+  //   const formik = useFormik({
+  //     initialValues,
+  //     onSubmit,
+  //     // validate,
+  //     validationSchema,
+  //   })
 
   return (
-    <div>
-      <form onSubmit={formik.handleSubmit}>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      validationSchema={validationSchema}
+    >
+      <Form>
         <div className='form-control'>
           <label htmlFor='name'>Name</label>
-          <input
+          <Field
             type='text'
             id='name'
             name='name'
             // onBlur={formik.handleBlur}
             // onChange={formik.handleChange}
             // value={formik.values.name}
-            {...formik.getFieldProps('name')}
+            // {...formik.getFieldProps('name')}
           />
-          {formik.errors.name && formik.touched.name && (
+          {/* The below code block is replaced by ErrorMessage */}
+
+          {/* {formik.errors.name && formik.touched.name && (
             <div className='error'>{formik.errors.name}</div>
-          )}
+          )} */}
+
+          <ErrorMessage name='name' />
         </div>
         <div className='form-control'>
           <label htmlFor='email'>E-mail</label>
-          <input
+          <Field
             type='email'
             id='email'
             name='email'
             // onBlur={formik.handleBlur}
             // onChange={formik.handleChange}
             // values={formik.values.email}
-            {...formik.getFieldProps('email')}
+            // {...formik.getFieldProps('email')}
           />
 
-          {formik.errors.email && formik.touched.email && (
+          {/* The below code block is replaced by ErrorMessage */}
+
+          {/* {formik.errors.email && formik.touched.email && (
             <div className='error'>{formik.errors.email}</div>
-          )}
+          )} */}
+
+          <ErrorMessage name='email' />
         </div>
         <div className='form-control'>
           <label htmlFor='channel'>Channel</label>
-          <input
+          <Field
             type='text'
             id='channel'
             name='channel'
             // onBlur={formik.handleBlur}
             // onChange={formik.handleChange}
             // values={formik.values.channel}
-            {...formik.getFieldProps('channel')}
+            // {...formik.getFieldProps('channel')}
           />
 
-          {formik.errors.channel && formik.touched.channel && (
+          {/* The below code block is replaced by ErrorMessage */}
+
+          {/* {formik.errors.channel && formik.touched.channel && (
             <div className='error'>{formik.errors.channel}</div>
-          )}
+          )} */}
+          <ErrorMessage name='channel' />
         </div>
         <button type='submit'>Submit</button>
-      </form>
-    </div>
+      </Form>
+    </Formik>
   )
 }
 

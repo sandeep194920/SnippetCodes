@@ -5,7 +5,7 @@
 - Name, Email and Channel
 - For each field I had label and input field
 
-### Installed formik and got useFormikContext
+### Installed formik and got useFormik hook
 
 - useFormik accepts initialValues object
 - these values are the starting values of form
@@ -81,3 +81,45 @@
 
 - If you look at three input fields, we have repeatitive code where each field has onBlur, onChange and value. onBlur and onChange are same in all three and value takes the name prop
 - So we can get rid of these 3 props and add a single prop {...formik.getFields('${name of the field}')}
+
+### More simplification using Formik Provider
+
+- If you look at the form, we still use formik.getFieldsProp and pass the field 'name' attribute
+- Let's leverage what formik offers more
+- We can use 'Formik' provider (replacement of useFormik hook), Form, Field and ErrorMessage
+
+  #### Steps to modify our code
+
+  ##### Formik Component
+
+  - Import {Formik} from formik
+  - Comment/delete the useFormik hook
+  - Wrap the entire for with Formik component
+  - Provide the props to Formik component. These are the same props we used to get from useFormik hook
+
+    - This Formik component is now acting as the provider to other 3 components we will be using which are Form, Field and ErrorMessage
+
+    ##### Form Component
+
+  - Import Form from formik and Replace 'form' with 'Form'
+  - Remove onSubmit prop on Form. Form can automatically do this
+
+    ##### Field Component
+
+  - Import Field component from 'formik'
+  - Replace each input tag with Field component
+  - Now we can get rid of getFieldProps helper method in each Field
+
+    Field does 3 things
+
+    - It will hook up values to Formik component
+    - It uses name attribute to match up formik state
+    - It will by default render input field
+
+    ##### ErrorMessage Component
+
+    Currently we see that there is a pattern to render the error. If there is an error and if the field is touched then the error is rendered. We can avoid this repeatition as follows
+
+    - Import ErrorMessage from 'formik'
+    - Replace the error checking block with ErrorMessage component and pass in the name prop of the field
+    - At this point the styling will be off
