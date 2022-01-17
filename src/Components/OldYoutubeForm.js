@@ -2,7 +2,7 @@ import React from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
-function YoutubeForm() {
+function OldYoutubeForm() {
   const initialValues = {
     name: '',
     email: '',
@@ -10,6 +10,21 @@ function YoutubeForm() {
   }
   const onSubmit = (values) => {
     console.log('The sumbited form', values)
+  }
+  const validate = (values) => {
+    // FYI, we have    values.name   values.email     values.channel
+    // we must have    errors.name   errors.email     errors.channel
+    let errors = {}
+    if (!values.name) errors.name = 'Required'
+    if (!values.channel) errors.channel = 'Required'
+    if (!values.email) {
+      errors.email = 'Required'
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = 'Invalid email format'
+    }
+    return errors
   }
 
   const validationSchema = Yup.object({
@@ -80,4 +95,4 @@ function YoutubeForm() {
   )
 }
 
-export default YoutubeForm
+export default OldYoutubeForm
