@@ -88,7 +88,7 @@
 - Let's leverage what formik offers more
 - We can use 'Formik' provider (replacement of useFormik hook), Form, Field and ErrorMessage
 
-  #### Steps to modify our code
+  #### Steps to modify our code with Formik provided components
 
   ##### Formik Component
 
@@ -123,3 +123,9 @@
     - Import ErrorMessage from 'formik'
     - Replace the error checking block with ErrorMessage component and pass in the name prop of the field
     - At this point the styling will be off
+
+### Specifying styles with ErrorMessage
+
+- You might have noticed that the styling disappeared when we use ErrorMessage
+- We can use a component prop on error message and specify that as a react component. The message passed will then be rendered as that component.
+- Let me create a TextError.js component and pass message as children prop and render error message in red color
