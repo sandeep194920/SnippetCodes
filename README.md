@@ -68,3 +68,11 @@
 - This handleBlur data is stored in the object called 'touched' inside useFormikContext like formik.values and formik.errors
 - We can use this formik.touched to display error message in UI for that particular field
 - So now we check for two conditions. If there's an error in the field and also if the field is touched then only we display error on that field.
+
+### Yup library - Alternate way of writing validation rules in formik
+
+- Install yup
+- We are not going to understand how yup works. Instead, we see how to rewrite our validation rules with yup
+- First step with Yup is to write our Validation Schema Object. this is what yup is for
+- I commented validate method in formik and added validateSchema. This is neat
+- NOW, WE HAVE HANDLED FORM VALUES, FORM SUBMISSIONS AND FORM VALIDATION(WITH AND WITHOUT YUP), BUT WE CAN ENHANCE MORE USING FORMIK BUILT-IN STUFF. LET'S SEE HOW FURTHER
