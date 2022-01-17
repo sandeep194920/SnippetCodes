@@ -10,6 +10,10 @@ function YoutubeForm() {
     channel: '',
     comments: '',
     address: '',
+    social: {
+      facebook: '',
+      twitter: '',
+    },
   }
   const onSubmit = (values) => {
     console.log('The sumbited form', values)
@@ -107,7 +111,6 @@ function YoutubeForm() {
           {/* render prop pattern */}
           <Field name='address'>
             {(props) => {
-              console.log('Render props', props)
               return (
                 <div>
                   <input type='text' id='address' {...props.field} />
@@ -119,6 +122,16 @@ function YoutubeForm() {
               )
             }}
           </Field>
+
+          <div className='form-control'>
+            <label htmlFor='facebook'>Facebook</label>
+            <Field type='text' id='facebook' name='social.facebook' />
+          </div>
+
+          <div className='form-control'>
+            <label htmlFor='twitter'>Twitter</label>
+            <Field type='text' id='twitter' name='social.twitter' />
+          </div>
         </div>
         <button type='submit'>Submit</button>
       </Form>

@@ -154,3 +154,9 @@
 - field obj has the values passed as props inside the jsx
 - form is the additional values (we worry only about field abd meta)
 - meta will provide addtional info such as error, visited etc
+
+### Nested object - formik values
+
+- we know that initialValues represent the form data. This is the one that stores form data as key value pairs. Now can we have nested object for initialValues?
+- Let's say I have a facebook and twitter link inputs in the form and I want to group them as social. Then my initialValues form must have social key and inside that I should have fb and twitter
+- To achieve this, we can add social as key and set value as an object having fb and twitter. Also, in the form, in Field we add name='social.facebook' and name='social.twitter'
