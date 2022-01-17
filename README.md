@@ -144,3 +144,13 @@
 - Meaning, any additional prop to field component will pass through to the underlying input element
 - The second point is, we can render other element other than input
 - Let's say I need to add a text area (lets say comments) to this form. First mention that prop in the initialValues and then in jsx, set 'as' props to 'textarea'
+
+###### Render props pattern
+
+- Other thing to keep in mind is, we can write the Field component in render props pattern
+- Let's create Address form field and write the Field as render props pattern instead of normal Field component
+- Field can now be created with opening and closing tag and passing arrow function as children. This arrow func will return jsx.
+- This arrow function will accept prop (this props object contain field, form and meta )
+- field obj has the values passed as props inside the jsx
+- form is the additional values (we worry only about field abd meta)
+- meta will provide addtional info such as error, visited etc

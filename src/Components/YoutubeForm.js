@@ -9,6 +9,7 @@ function YoutubeForm() {
     email: '',
     channel: '',
     comments: '',
+    address: '',
   }
   const onSubmit = (values) => {
     console.log('The sumbited form', values)
@@ -101,6 +102,24 @@ function YoutubeForm() {
           <Field as='textarea' id='comments' name='comments' />
         </div>
 
+        <div className='form-control'>
+          <label htmlFor='address'>Address</label>
+          {/* render prop pattern */}
+          <Field name='address'>
+            {(props) => {
+              console.log('Render props', props)
+              return (
+                <div>
+                  <input type='text' id='address' {...props.field} />
+                  {/* props.field will take care of handleChange, handleBlur etc. We can make use of meta to render error */}
+                  {props.meta.error && props.meta.touched && (
+                    <div className='error'>{props.meta.error}</div>
+                  )}
+                </div>
+              )
+            }}
+          </Field>
+        </div>
         <button type='submit'>Submit</button>
       </Form>
     </Formik>
