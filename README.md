@@ -76,3 +76,8 @@
 - First step with Yup is to write our Validation Schema Object. this is what yup is for
 - I commented validate method in formik and added validateSchema. This is neat
 - NOW, WE HAVE HANDLED FORM VALUES, FORM SUBMISSIONS AND FORM VALIDATION(WITH AND WITHOUT YUP), BUT WE CAN ENHANCE MORE USING FORMIK BUILT-IN STUFF. LET'S SEE HOW FURTHER
+
+### Refactoring Code (getting rid of repeatitive code) with getFieldProps
+
+- If you look at three input fields, we have repeatitive code where each field has onBlur, onChange and value. onBlur and onChange are same in all three and value takes the name prop
+- So we can get rid of these 3 props and add a single prop {...formik.getFields('${name of the field}')}
