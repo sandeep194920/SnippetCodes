@@ -1,13 +1,7 @@
-import YoutubeForm from './Components/YoutubeForm'
-
-import './App.css'
+import MaterialUIGridContainer from './Snippets/MaterialUIGridCenter'
 
 function App() {
-  return (
-    <div className='App'>
-      <YoutubeForm />
-    </div>
-  )
+  return <MaterialUIGridContainer />
 }
 
 export default App
